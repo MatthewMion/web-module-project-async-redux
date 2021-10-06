@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://2.bp.blogspot.com/-j_GR1Tq5tP0/VbY3ueWy4qI/AAAAAAAAIvE/wCjca8TaU6g/s1600/Logo%2BPokemon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.pokemon {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.pokeball {
+  display: flex;
+  justify-content: center;
+}
