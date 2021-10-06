@@ -1,30 +1,34 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getPokemon } from "../actions/pokemonAction";
-
+import { Button, Typography } from "@mui/material";
+import CatchingPokemonIcon from "@mui/icons-material/CatchingPokemon";
 const PokemonList = (props) => {
-  useEffect(() => {
-    props.getPokemon();
-  }, []);
-  const randomNumber = Math.floor(Math.random() * 5) + 1;
-  //   const randomMove = props.moves[randomNumber].move.name;
+  //   const randomNumber = Math.floor(Math.random() * 5) + 1;
   const fetchPokemon = (e) => {
     e.preventDefault();
     props.getPokemon();
-    console.log(props.moves[randomNumber].move.name);
+    // console.log(props.moves[randomNumber].move.name);
   };
+  //   const randomMove = props.moves[randomNumber].move;
+  useEffect(() => {
+    props.getPokemon();
+  }, []);
   return (
-    <div>
-      <h2>Who's that Pokemon?!</h2>
-      <button onClick={fetchPokemon}>Find Out!</button>
-      <h3>{props.pokemon.name}</h3>
-
-      <ul>
-        <li>{randomNumber}</li>
-        <li>test2</li>
-        <li>test3</li>
-        <li>test4</li>
-      </ul>
+    <div className="pokemon">
+      <Typography variant="h1" color="primary">
+        Who's That Pokemon?!
+      </Typography>
+      <div className="pokeball">
+        <CatchingPokemonIcon fontSize="large" />
+        <Button variant="outlined" color="error" onClick={fetchPokemon}>
+          Pick your pokeman!
+        </Button>
+        <CatchingPokemonIcon fontSize="large" />
+      </div>
+      <Typography variant="h2" color="secondary">
+        {props.pokemon.name}
+      </Typography>
     </div>
   );
 };
@@ -32,7 +36,7 @@ const PokemonList = (props) => {
 const mapStateToProps = (state) => {
   return {
     pokemon: state.pokemon,
-    moves: state.pokemon.moves,
+    moves: state.moves,
     error: state.error,
   };
 };

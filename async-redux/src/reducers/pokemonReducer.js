@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   pokemon: [],
-  moves: [],
+  moves: "nothing",
   error: "",
   isFetching: false,
 };
@@ -24,6 +24,7 @@ const pokemonReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemon: action.payload,
+        moves: action.payload.moves,
         isFetching: false,
         error: "",
       };
